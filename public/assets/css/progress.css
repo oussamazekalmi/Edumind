@@ -1,0 +1,75 @@
+:root {
+    --sole-color: #F9B948 !important;
+}
+
+
+.progressbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin: 2rem 0 4rem;
+}
+
+.progressbar::before,
+.progress {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+    z-index: -1;
+}
+
+.progress {
+    background-color: var(--sole-color) !important;
+    width: 0%;
+    transition: 0.3s;
+}
+
+.progress-step {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-step::before {
+    counter-increment: step;
+    content: counter(step);
+}
+
+.progress-step-active {
+    background-color: var(--sole-color) !important;
+    color: #f3f3f3;
+}
+
+::-webkit-scrollbar {
+    margin-bottom: -68px;
+    width: 10px;
+    height: 120px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cfcfcf;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #dfdddd;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
